@@ -1,0 +1,36 @@
+﻿@model Beemonitor2.Models.Apiary
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var Beehive in Model.Beehives) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Beehive.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@Beehive.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@Beehive.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@Beehive.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
